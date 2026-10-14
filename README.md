@@ -1,1 +1,1 @@
-# Student-Study-Organizer
+# Student Study Organizer
