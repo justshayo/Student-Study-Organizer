@@ -10,6 +10,6 @@ SWE301 – Software Process and Methodologies
 
 ## Documents
 
-
+- [Project Proposal](PROJECT_PROPOSAL.md)
 
 All data used in this project is simulated. No real personal or confidential data is stored.
