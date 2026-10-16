@@ -126,14 +126,13 @@ We will work in roughly two-week iterations. Each iteration begins with a short 
 3. MyStudyLife App Store listing: https://apps.apple.com/us/app/-/id910639339
 4. Doist, "How to Use Todoist Effectively": https://doist.com/blog/how-to-use-todoist-effectively
 5. Geekflare, Todoist review: https://geekflare.com/software/todoist-review/
-6. [TEAM: add your own interview/survey notes and any other source]
+
 
 **AI use**
 
 - **Tool:** Claude (Anthropic).
 - **How it was used:** To search for existing solutions and draft the first version of this proposal.
-- **Verification and revision:** [TEAM: describe what you actually did, for example: "We opened each source, tried both apps ourselves, checked each limitation claim, replaced the current-process section with our survey results, and edited the requirements in a group meeting on DATE."]
-
+- **Verification and revision:** 
 **Contributions**
 
-Each member contributed through separate commits and pull requests visible in the repository history. [TEAM: list who wrote or revised which section, matching the real commit history.]
+Each member contributed through separate commits and pull requests visible in the repository history.
