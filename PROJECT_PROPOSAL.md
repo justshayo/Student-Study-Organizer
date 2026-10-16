@@ -5,9 +5,9 @@
 - **Project title:** Student Study Organizer
 - **Group letter:** B
 - **Team members:**
-  - [Member A full name]
-  - [Member B full name]
-  - [Member C full name]
+  - Shaikhah Nayef Alajmi
+  - Deemah Meshal Althaher
+  - Renad Adil Alotaibi
 - **GitHub repository URL:** [TEAM: paste URL]
 - **Summary:** Student Study Organizer is a small web application that turns a student's course deadlines and estimated effort into a weekly study plan, tracks completed study time, and lets instructors publish deadlines directly to their course.
 
