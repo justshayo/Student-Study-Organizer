@@ -3,7 +3,7 @@
 ## 1. Team information
 
 - **Project title:** Student Study Organizer
-- **Group letter:** [TEAM: fill in]
+- **Group letter:** B
 - **Team members:**
   - Shaikhah Nayef Alajmi
   - Deemah Meshal Althaher
