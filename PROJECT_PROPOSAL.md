@@ -13,13 +13,24 @@
 
 ## 2. Problem and users
 
+We interviewed three university students online about how they currently plan their studying (anonymised notes in [Appendix A](#appendix-a-interview-notes)). All three keep deadlines on their phone, in a notes app, or in a phone calendar, and two said they sometimes forget a deadline or forget to check their notes. Studying is decided by urgency: two study for the nearest or most urgent deadline, and the third starts with the hardest subject but runs out of time. None follows a regular schedule. Two do not track their study time, and the third only sometimes uses a timer.
+
+All three students had several deadlines fall in the same week and felt stressed or overwhelmed, and one said she slept late to finish her work. This matters because poor planning leads to last-minute work, stress, and lower-quality results. We also assume, without having interviewed any instructors, that instructors are affected indirectly: they see late or rushed submissions and have no easy way to make a deadline appear in each student's own planner.
+
+The students asked for a tool that organizes their tasks, makes a clear study plan, splits work into smaller steps, and reminds them of deadlines. Our prototype addresses the plan and the visibility of deadlines; push or email reminders are out of scope this semester (Section 5). Three interviews are a small sample, so we will validate these findings with more students in the requirements milestone.
+
+The main actors are:
+
+1. **Student:** enters courses and tasks, views the study plan, and logs study time.
+2. **Instructor:** publishes assignment and exam deadlines to a course.
+
 ## 3. Existing solutions
 
 We compared our current way of planning study with two existing applications, MyStudyLife and Todoist, to identify their useful features and their limitations for university students.
 
 | Existing process or solution | Useful features | Limitation for our users | Source |
 |---|---|---|---|
-| Current process (notes app, phone calendar, paper planner) | Free, familiar, and flexible | Deadlines are entered manually from several sources; there is no overview of workload and no suggestion of when to study; study time is not recorded | [] |
+| Current process (notes app, phone calendar, paper planner) | Free, familiar, and flexible | In our interviews, students kept deadlines on a phone, notes app, or calendar and sometimes forgot them; they studied for the nearest deadline; most did not track study time | Our online interviews with three students on 17 October 2026 (Appendix A) |
 | MyStudyLife | Organizes classes, homework, and exams in one place; provides reminders, revision tasks, and personal study statistics | Study and revision tasks must be created manually. Our initial comparison did not show automatic workload warnings or instructor-published deadlines [TEAM: after testing, state what you actually found.] | https://mystudylife.com/schools/ ; https://chrome.google.com/webstore/detail/my-study-life/mnjdjjiobjicmlhnjlogfgbibihjhkeo/ ; https://apps.apple.com/us/app/-/id910639339 |
 | Todoist | Supports quick task creation, due dates, recurring tasks, priorities, projects, and productivity reports | It is a general-purpose task manager with no focus on courses, exams, or estimated study effort. Its reports show general productivity rather than planned versus actual study time. [TEAM: after testing, state whether it generates a study plan automatically.] | https://doist.com/blog/how-to-use-todoist-effectively ; https://geekflare.com/software/todoist-review/ |
 
@@ -48,9 +59,39 @@ The system generates suggested study sessions by spreading the remaining effort 
 
 ## 5. Scope and workflows
 
+| In scope (semester prototype) | Out of scope (not attempted) |
+|---|---|
+| Student and instructor login | University single sign-on or learning-platform integration |
+| Course and task management | Mobile app |
+| Rule-based study plan generation | AI or machine-learning recommendations |
+| Weekly plan view | Syncing with external calendars (Google, Outlook) |
+| Logging study time and weekly summary | Push notifications, email reminders |
+| Overload warnings | Group study features and chat |
+| Instructor publishing deadlines to a course | Grading or grade tracking |
+| Simulated demonstration data | Real student data |
+
+Two of the three interviewed students asked for reminders. For the prototype, upcoming deadlines will be shown on screen; push and email reminders are left for future work.
+
+| Workflow | Main actor and goal | Expected outcome |
+|---|---|---|
+| W1: Plan study for upcoming deadlines | A student adds courses and tasks with due dates and estimated hours and generates a study plan | A weekly plan of study sessions is saved and displayed, with warnings if it is unrealistic |
+| W2: Complete sessions and review progress | A student marks sessions complete, logs actual time, and reviews a weekly summary | Completed sessions and hours are recorded and the planned vs actual summary is shown |
+| W3: Publish a course deadline | An instructor publishes an assignment or exam deadline to a course | Enrolled students see the deadline as a task in their organizer |
+
 ## 6. Initial requirements
 
 ### Functional requirements
+
+| ID | Functional requirement | Priority |
+|---|---|---|
+| FR-01 | The system shall allow an authenticated student to create, edit, and delete courses. | Must |
+| FR-02 | The system shall allow an authenticated student to add a task with a course, title, due date, estimated effort in hours, and priority. | Must |
+| FR-03 | The system shall generate study sessions for each task between the current date and its due date without exceeding the student's configured daily study-hour limit. | Must |
+| FR-04 | The system shall display the student's study sessions and deadlines in a weekly view. | Must |
+| FR-05 | The system shall allow a student to mark a study session as complete and record the actual time spent. | Must |
+| FR-06 | The system shall warn the student when a task cannot be scheduled within the daily limit before its due date. | Should |
+| FR-07 | The system shall allow an instructor to publish a deadline to a course so that it appears as a task for each enrolled student. | Must |
+| FR-08 | The system shall display a weekly summary of planned hours versus completed hours for the student. | Should |
 
 ### Non-functional requirements
 
@@ -97,14 +138,14 @@ We will work in roughly two-week iterations. Each iteration begins with a short 
 
 ### Sources
 
-Each source was opened and read by a team member on 16 October 2026.
+Each source was opened and read by a team member on 17 October 2026.
 
 1. MyStudyLife, "MyStudyLife for Schools": https://mystudylife.com/schools/
 2. MyStudyLife, Chrome Web Store listing: https://chrome.google.com/webstore/detail/my-study-life/mnjdjjiobjicmlhnjlogfgbibihjhkeo/
 3. MyStudyLife, App Store listing: https://apps.apple.com/us/app/-/id910639339
 4. Doist, "How to Use Todoist Effectively": https://doist.com/blog/how-to-use-todoist-effectively
 5. Geekflare, "Todoist Review": https://geekflare.com/software/todoist-review/
-6. Our own online interviews with fellow students about how they currently plan their studying (Section 2 and the current-process row in Section 3). The anonymised notes are in `survey_notes.md`.
+6. Our own online interviews with fellow students about how they currently plan their studying (Section 2 and the current-process row in Section 3). The anonymised notes are in Appendix A.
 
 No external code, images, datasets, or templates were used in this proposal. Flask or Django, SQLite, Bootstrap, and Chart.js are only proposed for later milestones.
 
@@ -134,3 +175,49 @@ All contributions are recorded in the repository's commit history (https://githu
 | Deemah Meshal Althaher | Sections 3, 4, 6 (non-functional requirements) | Shaikhah Nayef Alajmi |
 
 > **Note on contributions:** Shaikhah Nayef Alajmi reviewed all sections and is responsible for maintaining the repository. **Renad and Deemah wrote their sections outside GitHub and Shaikhah committed them to the repository.**
+
+## Appendix A: Interview notes
+
+Three short interviews were conducted online via WhatsApp on 17 October 2026 by Renad Adil Alotaibi. Participants are anonymised.
+
+### Interview questions
+
+1. How do you currently keep track of assignment and exam deadlines?
+2. How do you decide when to study for each task?
+3. Have you ever missed a deadline or been surprised by several deadlines in one week? What happened?
+4. Do you record how much time you actually spend studying?
+5. What would you want a study-planning tool to do for you?
+
+### Responses
+
+#### Student 1 (interviewed on 17 October 2026)
+
+1. I use my phone, but sometimes I forget deadlines because I have too many assignments.
+2. I feel stressed and study for the closest exam because I don't have enough time.
+3. Yes, I had many deadlines in one week and could not finish everything on time.
+4. No, I don't track my study time because I'm always busy.
+5. I want a tool that organizes my tasks.
+
+#### Student 2 (interviewed on 17 October 2026)
+
+1. I write deadlines in my notes, but sometimes I forget to check them.
+2. I study based on urgent deadlines, even when I am not ready for the exam.
+3. Yes, I had two exams and three assignments in one week. I felt overwhelmed and slept late to finish my work.
+4. No, I do not track my study time because I am always trying to finish my tasks.
+5. I want a tool that makes a clear study plan and reminds me what I need to do every day.
+
+#### Student 3 (interviewed on 17 October 2026)
+
+1. I use my phone calendar, but I still feel that I have too many things to do.
+2. I try to study the hardest subjects first, but sometimes I run out of time.
+3. Yes, several deadlines came together, and I felt very stressed because I could not finish everything.
+4. Sometimes I use a timer, but I cannot follow a regular schedule.
+5. I want a tool that divides my tasks into smaller steps and reminds me of important deadlines.
+
+### Summary of findings
+
+- All three students keep deadlines on their phone, in a notes app, or in a phone calendar; two said they sometimes forget deadlines or forget to check them.
+- All three had several deadlines land in the same week and felt stressed or overwhelmed.
+- Students study for the nearest or most urgent deadline, or the hardest subject first, and run out of time. None follows a regular schedule.
+- Two of three do not track study time; one sometimes uses a timer.
+- Requested features: task organization, a clear study plan, splitting tasks into smaller steps, and daily or deadline reminders.
