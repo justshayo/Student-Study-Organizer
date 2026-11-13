@@ -8,8 +8,10 @@ SWE301 – Software Process and Methodologies
 - Deemah Meshal Althaher
 - Renad Adil Alotaibi
 
-## Documents
+## Documents and Links
 
 - [Project Proposal](PROJECT_PROPOSAL.md)
+- [Sprint 1 Plan](SPRINT_1_PLAN.md)
+- [GitHub Project Board](https://github.com/users/justshayo/projects/1)
 
 All data used in this project is simulated. No real personal or confidential data is stored.
